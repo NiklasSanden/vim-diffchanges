@@ -87,7 +87,9 @@ function! s:DiffChangesOn(mode) "{{{1
         1
         vert new
         let &ft=save_ft
-        execute '0read '.filename
+        execute 'read '.filename
+        normal gg
+        normal dd
         diffthis
         1
         set buftype=nofile
