@@ -80,6 +80,7 @@ function! s:DiffChangesOn(mode) "{{{1
         return
     endif
     if a:mode == 'diff'
+        normal md
         let b:diffchanges_savefdm = &fdm
         let b:diffchanges_savefdl = &fdl
         let save_ft=&ft
@@ -117,6 +118,7 @@ function! s:DiffChangesOff() "{{{1
         diffoff
         let &fdm = b:diffchanges_savefdm
         let &fdl = b:diffchanges_savefdl
+        normal `d
     endif
     let dcp = g:diffchanges_{dcm}
     call remove(dcp, index(dcp, pair))
